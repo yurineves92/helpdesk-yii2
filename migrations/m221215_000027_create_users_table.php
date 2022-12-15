@@ -14,6 +14,15 @@ class m221215_000027_create_users_table extends Migration
     {
         $this->createTable('{{%users}}', [
             'id' => $this->primaryKey(),
+            'name' => $this->string(100)->notNull(),
+            'email' => $this->string(60)->notNull(),
+            'password' => $this->string(100)->notNull(),
+            'active' => $this->boolean()->defaultValue(true),
+            'type' => $this->integer()->notNull(),
+            'authKey' => $this->string()->notNull(),
+            'accessToken' => $this->string()->notNull(),
+            'created_at' => $this->dateTime()->notNull(),
+            'updated_at' => $this->dateTime()
         ]);
     }
 
