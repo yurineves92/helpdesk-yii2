@@ -7,16 +7,16 @@
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
 
-$this->title = 'Login';
+$this->title = 'Register';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div>
     <h1 class="h3 mb-3 fw-normal"><?= Html::encode($this->title) ?></h1>
 
-    <p>Create account? <a href="/auth/register">Register!</a></p>
+    <p>Have account? <a href="/auth/login">Register!</a></p>
 
     <?php $form = ActiveForm::begin([
-        'id' => 'login-form',
+        'id' => 'register-form',
         'layout' => 'horizontal',
         'fieldConfig' => [
             'template' => "{label}\n{input}\n{error}",
@@ -26,13 +26,11 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 
+    <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
+
     <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
 
     <?= $form->field($model, 'password')->passwordInput() ?>
-
-    <?= $form->field($model, 'rememberMe')->checkbox([
-        'template' => "<div class=\"custom-control custom-checkbox\">{input} {label}</div>\n<div class=\"checkbox mb-3\">{error}</div>",
-    ]) ?>
 
     <div class="form-group">
         <div>

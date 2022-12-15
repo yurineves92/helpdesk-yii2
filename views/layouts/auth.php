@@ -3,12 +3,11 @@
 /** @var yii\web\View $this */
 /** @var string $content */
 
-use app\assets\AppAsset;
+use app\assets\LoginAsset;
 use app\widgets\Alert;
-use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
 
-AppAsset::register($this);
+LoginAsset::register($this);
 
 $this->registerCsrfMetaTags();
 $this->registerMetaTag(['charset' => Yii::$app->charset], 'charset');
@@ -19,21 +18,17 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>" class="h-100">
+<html lang="<?= Yii::$app->language ?>">
 
 <head>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
 
-<body class="d-flex flex-column h-100">
+<body class="text-center">
     <?php $this->beginBody() ?>
-
-    <main id="main" class="flex-shrink-0" role="main">
+    <main class="form-signin">
         <div class="container">
-            <?php if (!empty($this->params['breadcrumbs'])) : ?>
-                <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
-            <?php endif ?>
             <?= Alert::widget() ?>
             <?= $content ?>
         </div>

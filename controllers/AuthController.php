@@ -3,12 +3,14 @@
 namespace app\controllers;
 
 use app\models\LoginForm;
+use app\models\User;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use Yii;
 
 class AuthController extends \yii\web\Controller
 {
+    public $layout = "auth";
     /**
      * {@inheritdoc}
      */
@@ -48,11 +50,26 @@ class AuthController extends \yii\web\Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            Yii::$app->session->setFlash('success', 'Seja bem-vindo(a) de volta, ' . Yii::$app->user->identity->name);
             return $this->goBack();
         }
 
         $model->password = '';
         return $this->render('login', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionRegister()
+    {
+        $model = new User();
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', 'Usuário criado com sucesso!');
+            return $this->redirect(['login']);
+        }
+
+        $model->password = '';
+        return $this->render('register', [
             'model' => $model,
         ]);
     }
