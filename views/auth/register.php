@@ -7,13 +7,13 @@
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
 
-$this->title = 'Register';
+$this->title = 'Cadastre-se';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div>
     <h1 class="h3 mb-3 fw-normal"><?= Html::encode($this->title) ?></h1>
 
-    <p>Have account? <a href="/auth/login">Register!</a></p>
+    <p>Já tem uma conta? <a href="/auth/login">Fazer login!</a></p>
 
     <?php $form = ActiveForm::begin([
         'id' => 'register-form',
@@ -26,15 +26,15 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 
-    <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
+    <?= $form->field($model, 'name')->label('Nome:')->textInput(['placeholder' => 'Informe seu nome', 'autofocus' => true]) ?>
 
-    <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
+    <?= $form->field($model, 'email')->label('Email:')->textInput(['placeholder' => 'Informe seu e-mail', 'autofocus' => true]) ?>
 
-    <?= $form->field($model, 'password')->passwordInput() ?>
+    <?= $form->field($model, 'password')->label('Senha:')->passwordInput(['placeholder' => 'Informe sua senha']) ?>
 
     <div class="form-group">
         <div>
-            <?= Html::submitButton('Login', ['class' => 'w-100 btn btn-lg btn-primary', 'name' => 'login-button']) ?>
+            <?= Html::submitButton('Criar conta', ['class' => 'w-100 btn btn-lg btn-primary', 'name' => 'login-button']) ?>
         </div>
     </div>
 
