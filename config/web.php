@@ -4,9 +4,11 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
-    'id' => 'basic',
+    'id' => 'Helpdesk for Studies',
+    'name' => 'Helpdesk',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'language' => "pt_BR",
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -46,6 +48,13 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [],
+        ],
+        'formatter' => [
+            'dateFormat' => 'dd/MM/yyyy',
+            'datetimeFormat' => 'dd/MM/yyyy H:i:s',
+            'decimalSeparator' => ',',
+            'thousandSeparator' => '.',
+            'currencyCode' => 'BRL',
         ],
     ],
     'params' => $params,
