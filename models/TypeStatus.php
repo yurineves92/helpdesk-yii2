@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "type_status".
@@ -29,9 +31,19 @@ class TypeStatus extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'color', 'created_at'], 'required'],
+            [['name', 'color'], 'required'],
             [['created_at', 'updated_at'], 'safe'],
             [['name', 'color'], 'string', 'max' => 255],
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::class,
+                'value' => new Expression('NOW()')
+            ]
         ];
     }
 

@@ -13,7 +13,7 @@ use Yii;
  * @property string $created_at
  * @property string|null $updated_at
  */
-class TypePriorities extends \yii\db\ActiveRecord
+class TypePriority extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}

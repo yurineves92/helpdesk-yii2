@@ -85,7 +85,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">Status</a>
+                                <a class="nav-link" href="/type-status/index">Status</a>
                                 <a class="nav-link" href="layout-sidenav-light.html">Prioridades</a>
                                 <a class="nav-link" href="layout-sidenav-light.html">Categorias</a>
                                 <a class="nav-link" href="layout-sidenav-light.html">Tipo problemas</a>
